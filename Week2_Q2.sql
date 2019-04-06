@@ -1,27 +1,27 @@
-SELECT TOP 10 * FROM trnsact ORDER BY orgprice DESC;  
+SELECT * FROM trnsact LIMIT 10 ORDER BY orgprice DESC;  
 --
 
-SELECT count ( distinct state ) from strinfo;  
+SELECT COUNT(DISTINCT state) FROM strinfo;  
 --
-SELECT * FROM deptinfo WHERE deptdesc like 'e%';  
+SELECT * FROM deptinfo WHERE deptdesc LIKE 'e%';  
 --
 
-SELECT top 10 (orgprice-sprice) AS margin, saledate
+SELECT (orgprice-sprice) AS margin, saledate
 FROM trnsact
 WHERE sprice NOT= orgprice
-ORDER BY saledate asc, margin DESC;
+ORDER BY saledate ASC, margin DESC;
 --
 SELECT (sprice), register
 FROM trnsact 
 WHERE (saledate>'2004-08-01') AND (saledate < '2004-08-11')
-ORDER BY orgprice desc, sprice desc;
+ORDER BY orgprice DESC, sprice DESC;
 --
-SELECT distinct brand
+SELECT DISTINCT brand
 FROM skuinfo
-WHERE brand like '%liz%';
+WHERE brand LIKE '%liz%';
 --
 SELECT *
 FROM store_msa
 WHERE city IN ('little rock', 'memphis', 'tulsa')
-ORDER by store;
+ORDER BY store;
 
