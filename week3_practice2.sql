@@ -33,5 +33,5 @@ SELECT state, zip, COUNT(DISTINCT user_guid) AS num_users
 FROM users
 WHERE country='US'
 GROUP BY state, zip
-HAVING num_users>5
+HAVING num_users>=5
 ORDER BY state, num_users DESC;
